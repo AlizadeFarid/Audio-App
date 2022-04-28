@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-4">
+            <div class="card pt-4 pb-2">
+                <div class="text-center">
+                    <h4 class="card-title mb-3"><b>Auido App</b></h4>
+                    <div class="buttons">
+                        <button (click)="play()" class="btn btn-dark px-4">Play</button>
+                        <button (click)="pause()" class="btn btn-dark px-4 mx-2">Pause</button>
+                        <button (click)="stop()" class="btn btn-dark px-4">Stop</button>
+                    </div>
+                    <div class="player mt-3">
+                        <span style="display: block;"><b>Duration</b></span>
+                        <div class="d-flex justify-content-center align-items-center"></div>
+                        <span>{{currentTime}}</span>
+                        <input style="width: 70%;" type="range" class="form-range" min="0" max="{{duration}}" [value]="seek" (input)="setSeek($event)">
+                        <span>{{duration}}</span>
+                    </div>
+                    <div class="volume">
+                        <span style="display: block;"><b>Volume</b></span>
+                        <input style="width: 70%;" type="range" class="form-range" min="0" max="1" step="0.01" value="0.2" (input)="changeVolume($event)">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a *ngFor="let music of musics" (click)="startMusic(music.url)" href="#" class="list-group-item list-group-item-action mb-2"><b>{{music.name}}</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
